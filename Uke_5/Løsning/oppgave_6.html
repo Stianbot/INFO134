@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demonstrasjon</title>
+
+  </head>
+  <body id="body" >
+    <button onclick="startProgram()">Kill</button>
+    <p id="avsnittet">
+      <a href="http://wildboy.uib.no">Wildboy</a>
+    </p>
+  </body>
+  <script type="text/javascript">
+    function startProgram() {
+      var avsnittet = document.getElementById("avsnittet");
+      var nytt = '<a class="dead" href="#">død  lenke</a>';
+      avsnittet.innerHTML = nytt;
+
+      var a = document.getElementsByClassName("dead")[0];
+      a.style.color = "red";
+      a.style.textDecoration="none";
+
+    }
+
+    /*function makeRed() {
+      var a = getElementsByClassName("dead")[0];
+      a.style.color = "red";
+    }*/
+
+
+
+  </script>
+</html>
