@@ -1,35 +1,33 @@
-function Nim(player1, player2, victory, total, maxGrab) {
-
-    this.victory = victory;
+function Nim(player1, player2, /*victory,*/ total, maxGrab) {
+    var turn = 0;
+    //this.victory = victory;
     this.total = total;
     this.maxGrab = maxGrab;
 
     if (player1 == undefined) {
         this.p1 = {
             name: "Robot 1",
-            human: false
+            human: false,
         }
+
     }
 
     if (player1 != undefined) {
-        this.p1 = {
-            name: player1,
-            human: true
-        }
+      this.p1 = new Person(player1, true)
+    }
+
+
+
+    if (turn % 2) {
+      // NOTE: Disable player 1 sine knapper
     }
 
     if (player2 == undefined) {
-        this.p2 = {
-            name: "Robot 2",
-            human: false
-        }
+        this.p2 = new Person("Robot 2", false)
     }
 
     if (player2 != undefined) {
-        this.p2 = {
-            name: player2,
-            human: true
-        }
+        this.p2 = new Person(player2, true)
     }
 
     if (!this.maxGrab) {
@@ -42,46 +40,13 @@ function Nim(player1, player2, victory, total, maxGrab) {
         }
     }
 
-
-
-
-    function grab(antall) {
-        this.antall = antall;
-        if (!this.antall) {
-            this.antall = 0;
-        }
-        console.log(this.antall);
+    function Person(name, human, grab){
+      this.name = name;
+      this.human = human;
+      this.grab = function grab(n){
+        if(n === undefined){return}
+        total -= n; turn += 1;
+        console.log(total, turn);
+      }
     }
-
-
 }
-
-
-
-
-
-
-/*o1 = {
-  message: "Dette er en melding",
-  greet: function(){
-    console.log(o1.message); //this.message);
-  },
-  btn: "",
-  get button(){
-    if (this.btn){
-      return this.btn;
-    }
-     this.btn = document.createElement("button");
-     this.btn.appendChild(document.createTextNode("Button"))
-     document.body.appendChild(this.btn)
-     this.btn.onclick = o1.greet;
-     return this.btn
-  }
-
-}
-
-
-
-var knapp2 = document.getElementById("knapp2");
-knapp2.onclick = o1.greet;
-*/
