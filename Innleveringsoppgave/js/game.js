@@ -1,15 +1,14 @@
 
-function makeButtons(x) {
+function makeButtons(game, player, id) {
   var buttonlist = []
-  for (let i = 0; i < x.maxGrab; i++) {
+  for (let i = 0; i < game.maxGrab; i++) {
       var btn = document.createElement("button");
       btn.appendChild(document.createTextNode("Button " + (i + 1)))
       buttonlist.push(btn);
-      document.getElementById("Spiller1").appendChild(btn)
+      document.getElementById(id).appendChild(btn)
   }
   for (let j = 0; j < buttonlist.length; j++) {
-    x = x;
-    buttonlist[j].onclick = function(){x.p1.grab(j+1)};
+    buttonlist[j].onclick = function(){game[player].grab(j+1)};
   }
 }
 
@@ -19,6 +18,7 @@ function makeButtons(x) {
 
 function createGame() {
     var p = new Nim("Stian","Robert", 50, 4)
-    makeButtons(p)
+    makeButtons(p, "p1","Spiller1")
+    makeButtons(p, "p2","Spiller2")
     console.log(p);
 }

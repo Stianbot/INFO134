@@ -4,19 +4,13 @@ function Nim(player1, player2, /*victory,*/ total, maxGrab) {
     this.total = total;
     this.maxGrab = maxGrab;
 
-    if (player1 == undefined) {
-        this.p1 = {
-            name: "Robot 1",
-            human: false,
-        }
-
+    if (player1 === undefined) {
+      throw "Definer Spiller 1"
     }
 
     if (player1 != undefined) {
       this.p1 = new Person(player1, true)
     }
-
-
 
     if (turn % 2) {
       // NOTE: Disable player 1 sine knapper
@@ -48,5 +42,5 @@ function Nim(player1, player2, /*victory,*/ total, maxGrab) {
         total -= n; turn += 1;
         console.log(total, turn);
       }
-    }
+      }
 }
