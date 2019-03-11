@@ -5,7 +5,7 @@ function makeButtons(game, player, id) {
   var buttonlist = []
   for (let i = 0; i < game.maxGrab; i++) {
       var btn = document.createElement("button");
-      btn.appendChild(document.createTextNode("Button " + (i + 1)))
+      btn.appendChild(document.createTextNode((i + 1)))
       buttonlist.push(btn);
       document.getElementById(id).appendChild(btn)
   }
@@ -65,9 +65,29 @@ function Person(name, human, game){
   }
 }
 
+function getInfo(id){
+  var element = document.getElementById(id).value
+
+  if (element == "") {
+    element = undefined
+  }
+  return element
+}
+
+function getElements() {
+  var elementliste = ["p1","p2","Ak","Mg"];
+  var verdier =[]
+
+  for (var i = 0; i < elementliste.length; i++) {
+    verdier.push(getInfo(elementliste[i]))
+  }
+  return verdier
+}
+
 
 function createGame() {
-    var spill = new Nim("Stian","Robert",seier, 10, 4)
+    var a = getElements()
+    var spill = new Nim(a[0],a[1],seier,a[2],a[3])
     makeButtons(spill, "p1","Spiller1")
 
     if (spill.p2.human == true) {

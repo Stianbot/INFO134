@@ -4,13 +4,41 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="js/nim.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
+    <link rel="stylesheet" href="css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>NIM</title>
   </head>
-  <body onload="createGame();">
-    <div id="Spiller1">
+  <body>
+    <div class="superWrapper">
+      <div class="wrapper">
+
+        <div class="container">
+            <input id="p1" type="text" placeholder="Spiller 1">
+            <input id="p2" type="text" placeholder="Spiller 2">
+
+              <input id="Ak" type="text" placeholder="Antall klinkekuler">
+              <input id="Mg" type="text" placeholder="Max grab">
+              <button id="start" type="button" name="button" onclick="createGame()">Start</button>
+
+
+        </div>
+        <div class="container2">
+          <div class="logg">
+            <p>Her skal det komme en logg</p>
+            <p>Den skal være sentrert og skrive ut hva som skjer</p>
+          </div>
+        </div>
+      </div>
+      <div class="game">
+        <div class="spiller">
+          <div id="Spiller1"></div>
+          <div id="Spiller2"></div>
+        </div>
+      </div>
     </div>
-    <div id="Spiller2">
-    </div>
+
+
+
 
   </body>
 </html>

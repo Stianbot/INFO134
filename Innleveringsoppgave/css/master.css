@@ -1,0 +1,107 @@
+html{
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  /*background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027);*/
+  background-color: black
+
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+
+}
+.game{
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2%;
+
+}
+.container2{
+  display: flex;
+}
+
+.logg{
+  display: block;
+  color: white;
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  max-width: 100%;
+  padding-left: 1%;
+}
+
+.spiller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.skjema{
+}
+
+.wrapper2{
+  flex-direction: row;
+}
+
+
+
+
+/*FRA ANDRE STEDER*/
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+  border: none;
+  color: white;
+  border-color: white;
+  background: linear-gradient(to right, #f857a6, #ff5858); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+  font-size: 20px;
+}
+
+
+button {
+  background-color: white;
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  border: none;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 6px 6px;
+  cursor: pointer;
+}
+
+button:active {
+  background: linear-gradient(to right, #7f00ff, #e100ff);
+  transform: translateY(4px);
+}
+
+#start{
+  margin: 12px 0px;
+  background: linear-gradient(to right, #7f00ff, #e100ff);
+}
+#start:active{
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+}
+
+
+
+@media only screen and (max-width: 550px) {
+  input[type=text] {
+    width: 100%;
+  }
+  .wrapper2 input{
+    flex-flow: wrap;
+  }
+}

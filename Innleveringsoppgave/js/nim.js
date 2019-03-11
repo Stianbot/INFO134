@@ -21,7 +21,7 @@ function Nim(player1, player2, victory, total, maxGrab) {
         this.p2 = new Person(player2, true, this)
     }
 
-    if (!this.maxGrab) {
+    if (!this.maxGrab || maxGrab < 3) {
         this.maxGrab = 3;
     }
 }
