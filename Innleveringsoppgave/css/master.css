@@ -2,6 +2,7 @@ html{
   min-height: 100%;
   min-width: 100%;
   overflow: hidden;
+  color: white;
 }
 body{
   font-family: 'Roboto', sans-serif;
@@ -14,10 +15,12 @@ body{
 .wrapper{
   display: flex;
   justify-content: center;
+  margin-top: 5%;
 
 }
 .game{
   display: flex;
+
   justify-content: center;
   margin-top: 3%;
 }
@@ -31,6 +34,8 @@ body{
   display: flex;
 }
 
+
+
 .logg{
   display: block;
   color: white;
@@ -43,6 +48,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 .skjema{
 }
@@ -94,6 +100,20 @@ button:active {
 #start:active{
   background: linear-gradient(to right, #ff9966, #ff5e62);
 }
+#teller{
+  font-size: 100px;
+  margin: 0px;
+  font-weight: bold;
+	text-transform: uppercase;
+	background: linear-gradient(to right, #f800ff 40%, #d5dc00 60%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+}
+font: {
+  size: 20vw;
+  family: $font;
+};
 
 
 

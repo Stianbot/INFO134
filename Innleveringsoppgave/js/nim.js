@@ -1,8 +1,8 @@
 function Nim(player1, player2, victory, total, maxGrab) {
     this.status = []
     this.turn = 0;
-    this.total = total;
-    this.maxGrab = maxGrab;
+    this.total = parseInt(total);
+    this.maxGrab = parseInt(maxGrab);
     this.victory = victory;
 
     if (player1 === undefined) {
