@@ -37,12 +37,28 @@ body{
 
 
 .logg{
-  display: block;
+  display: flex;
+  visibility:hidden;
+  width: 0px;
+  transition: width 2s;
+  text-align: center;
+  flex-direction: column;
+
+  min-width: 100%;
   color: white;
-  background: linear-gradient(to right, #43cea2, #185a9d);
-  max-width: 100%;
-  padding-left: 1%;
+
 }
+
+#logg_overskrift{
+  font-size: 50px;
+  margin: 0px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #3700ff  40%, #9a00ff 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 .spiller {
   display: flex;

@@ -14,7 +14,7 @@ function Nim(player1, player2, victory, total, maxGrab) {
     }
 
     if (player2 == undefined) {
-        this.p2 = new Person("Robot 2", false, this)
+        this.p2 = new Person("Robot", false, this)
     }
 
     if (player2 != undefined) {
@@ -23,5 +23,8 @@ function Nim(player1, player2, victory, total, maxGrab) {
 
     if (!this.maxGrab || maxGrab < 3) {
         this.maxGrab = 3;
+    }
+    if (total == undefined) {
+      this.total = 14;
     }
 }
