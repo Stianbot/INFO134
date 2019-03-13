@@ -37,6 +37,7 @@ function checkTurn(g){
           disableButtons("p1");
           setTimeout(function () {g.p2.grab(dataGrab(g)); enableButtons("p1")}, 500)
       }
+
   }
 
 
