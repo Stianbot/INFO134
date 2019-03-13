@@ -196,7 +196,7 @@ function createGame() {
             var spiller_2_btn = makeButtons(spill, "p2", "Spiller2");
             namePlayers(spill, "p2", "spiller2_navn")
         }
-        dataGrab(spill)
+        dataGrab(spill);
         started = true;
     }
 
