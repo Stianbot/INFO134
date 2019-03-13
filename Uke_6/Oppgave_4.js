@@ -34,17 +34,17 @@ var teller = {
 
     // 4.f)
     onchange: function(value){
-      var btn = document.getElementById("myButton")
+      var btn = document.getElementById("myButton");
       btn.innerHTML = value;
     },
 
     //4.g)
     onzero: function () {
-      var button = document.getElementById("myButton")
+      var button = document.getElementById("myButton");
       button.disabled = true;
     }
 
-}
+};
 
 //4.d)
 function finishedAlert(){

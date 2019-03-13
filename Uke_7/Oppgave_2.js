@@ -70,15 +70,13 @@ function beskriv(bilBeskr) {
   var result = "";
   if (bilBeskr) {
     result = "bilen finnes.";
-  };
-
-  if (bilBeskr.farge) {
+  }
+    if (bilBeskr.farge) {
     result = "Den " + bilBeskr.farge + " bilen";
   } else {
     result = "Bilen"
-  };
-
-  if (bilBeskr.regNr) {
+  }
+    if (bilBeskr.regNr) {
     result += " har registreringsnummer " + bilBeskr.regNr;
     if (bilBeskr.eier){
       result += " og eies av " + bilBeskr.eier + "."
@@ -99,4 +97,4 @@ var bil = {
   farge: "rød",
   regNr: "EV12345",
   eier: "Stian"
-}
+};

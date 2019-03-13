@@ -4,7 +4,7 @@ function example(){
 	(function(i){
 	    f0 = function() {
 		return i;
-	    }
+	    };
 	    window["f" + i] = f0;
 	})(i);
 	i++;

@@ -3,7 +3,7 @@ function teller() {
   teller.verdi = teller.verdi + 2;
   return teller.verdi
 }
-teller.verdi = -1
+teller.verdi = -1;
 
 //3.b)
 
@@ -15,7 +15,7 @@ function teller2(n) {
   teller2.verdi = teller2.verdi += 1;
   return teller2.verdi
 }
-teller2.verdi = 0
+teller2.verdi = 0;
 
 
 //3.d)

@@ -3,7 +3,7 @@ function example(){
     while(i < 3) {
 	f = function() {
 	    return i;
-	}
+	};
 	window["f" + i] = f;
 	i++;
     }

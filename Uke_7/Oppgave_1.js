@@ -3,12 +3,12 @@ console.log("----- 1.a -----");
 var p1 = {
   fornavn: "Ola",
   etternavn: "Nordmann"
-}
+};
 
 var p2 = {
   fornavn: "Kari",
   etternavn: "Nordmann"
-}
+};
 
 var fam = [p1, p2];
 
@@ -49,13 +49,13 @@ while ( i < fam.length) {
   i = i+1
 }
 
-var z = 0
+var z = 0;
 while (z < numbers_b.length) {
   console.log(numbers_b[z][0] + numbers_b[z][1]);
   z = z+1
 }
 
-var y = 0
+var y = 0;
 while (y < numbers_b_2.length) {
   console.log(numbers_b_2[y][0] + numbers_b_2[y][1]);
   y = y+1

@@ -2,45 +2,69 @@
    Tar tre argumenter. game = spillobjekt, player = spiller-objekt og
    id = id, til element i html hvor knappene skal lages.*/
 function makeButtons(game, player, id) {
-  var buttonlist = []
+  var buttonlist = [];
   for (let i = 0; i < game.maxGrab; i++) {
       var btn = document.createElement("button");
-      btn.appendChild(document.createTextNode((i + 1)))
+      btn.appendChild(document.createTextNode((i + 1)));
       buttonlist.push(btn);
+      btn.setAttribute("class",player);
       document.getElementById(id).appendChild(btn)
   }
   for (let j = 0; j < buttonlist.length; j++) {
     buttonlist[j].onclick = function(){game[player].grab(j+1)};
-    buttonlist[j].addEventListener("click", function(){checkTurn(game, buttonlist)});
+    buttonlist[j].addEventListener("click", function(){checkTurn(game)});
   }
-
-  return buttonlist
 
 }
 
 
 /*Funksjon for å sjekke hvem sin tur det er*/
-function checkTurn(g, l){
-  var sw = false;
-  console.log(l);
+function checkTurn(g){
   if (g.turn % 2  && g.total > 0) {
-    console.log("reee");
+      if (g.p1.human === true && g.p2.human === true){
+          disableButtons("p1");
+          enableButtons("p2")
+      }
   }
-  if (g.turn % 2 == false && g.total > 0) {
-  console.log("reee2");
-}}
-
-/*
-if (sw == true) {
-  for (var i = 0; i < l.length; i++) {
-    l[i].disabled = true;
-
-    for (var i = 0; i < l.length; i++) {
-      l[i].disabled = true;
+  if (g.turn % 2 === 0 && g.total > 0) {
+      if (g.p1.human === true && g.p2.human === true){
+          disableButtons("p2");
+          enableButtons("p1")
+      }
+}
+  if (g.p2.human === false){
+      if (g.turn % 2 && g.total > 0) {
+          disableButtons("p1");
+          setTimeout(function () {g.p2.grab(dataGrab(g)); enableButtons("p1")}, 500)
+      }
   }
 
 
-*/
+}
+
+function dataGrab(game) {
+    let data = Math.floor(Math.random() * game.maxGrab) + 1;
+
+    if (game.maxGrab >= game.total){
+        data = game.total
+    }
+    return data
+
+}
+
+function disableButtons(id) {
+    let spiller_buttons = document.getElementsByClassName(id);
+    for (number in spiller_buttons){
+        spiller_buttons[number].disabled=true
+    }
+}
+
+function enableButtons(id) {
+    let spiller_buttons = document.getElementsByClassName(id);
+    for (number in spiller_buttons){
+        spiller_buttons[number].disabled=false
+    }
+}
 
 /*funksjon som sjekker hvem som har vunnet. Tar ett argrument: g = spillobjekt.
   om det er en vinner returnerer funksjonen spillerobjektet til vinneren*/
@@ -48,7 +72,7 @@ function checkWinner(g){
   if (g.total === 0 && g.turn % 2) {
     return g.p1
   }
-  if (g.total === 0 && g.turn % 2 == false) {
+  if (g.total === 0 && g.turn % 2 === 0) {
     return g.p2
   }
 }
@@ -68,12 +92,12 @@ function kommentator(g, p, n){
   }
 
   if (n === 1) {
-    var vinner = p.name + " er vinneren!"
+    var vinner = p.name + " er vinneren!";
     return vinner
   }
 
   if (n === 2) {
-    var spiller_grab = p.name + " tar " + p.last_grab + " klinkekuler"
+    var spiller_grab = p.name + " tar " + p.last_grab + " klinkekuler";
     return spiller_grab
   }
 
@@ -89,24 +113,25 @@ function Person(name, human, game){
     if (n <= game.total) {
       game.total -= n;
       game.turn += 1;
-      this.last_grab = n
-      updateCounter(game)
-      makeComment(kommentator(game, this, 2))
+      this.last_grab = n;
+      updateCounter(game);
+      makeComment(kommentator(game, this, 2));
     }
 
-    if (game.total == 0) {
-      var vinner = checkWinner(game)
-      game.victory(vinner)
+
+    if (game.total === 0) {
+      var vinner = checkWinner(game);
+      game.victory(vinner);
       game.total = undefined
     }
-    return
+
   }
 }
 
 function getInfo(id){
-  var element = document.getElementById(id).value
+  var element = document.getElementById(id).value;
 
-  if (element == "") {
+  if (element === "") {
     element = undefined
   }
   return element
@@ -114,26 +139,26 @@ function getInfo(id){
 
 function getElements() {
   var elementliste = ["p1","p2","Ak","Mg"];
-  var verdier =[]
+  var verdier =[];
 
-  for (var i = 0; i < elementliste.length; i++) {
+  for (let i = 0; i < elementliste.length; i++) {
     verdier.push(getInfo(elementliste[i]))
   }
   return verdier
 }
 
 function makeCounter(game){
-  var klinkekuler = document.getElementById("teller");
+  let klinkekuler = document.getElementById("teller");
   klinkekuler.innerHTML = game.total;
 }
 
 function makeComment(comment){
-  var list = document.getElementsByClassName("logg")[0];
-  var logg = document.createElement("p");
-  logg.appendChild(document.createTextNode((comment)))
-  document.getElementsByClassName("logg")[0].appendChild(logg)
+  let list = document.getElementsByClassName("logg")[0];
+  let logg = document.createElement("p");
+  logg.appendChild(document.createTextNode((comment)));
+  document.getElementsByClassName("logg")[0].appendChild(logg);
 
-  if (list.childNodes.length == 7) {
+  if (list.childNodes.length === 7) {
     list.removeChild(list.childNodes[2])
   }
 }
@@ -155,17 +180,23 @@ function background() {
   logg.style.visibility = "visible";
 }
 
+var started = false;
 
 function createGame() {
-    var a = getElements()
-    var spill = new Nim(a[0],a[1],seier,a[2],a[3])
-    var spiller_1_btn = makeButtons(spill, "p1","Spiller1");
-    makeCounter(spill);
-    namePlayers(spill, "p1", "spiller1_navn");
-    background();
-    if (spill.p2.human == true) {
-    var spiller_2_btn = makeButtons(spill, "p2","Spiller2")
-    namePlayers(spill, "p2", "spiller2_navn")
+
+    if (started === false) {
+        var a = getElements();
+        var spill = new Nim(a[0], a[1], seier, a[2], a[3]);
+        var spiller_1_btn = makeButtons(spill, "p1", "Spiller1");
+        makeCounter(spill);
+        namePlayers(spill, "p1", "spiller1_navn");
+        background();
+        if (spill.p2.human === true) {
+            var spiller_2_btn = makeButtons(spill, "p2", "Spiller2");
+            namePlayers(spill, "p2", "spiller2_navn")
+        }
+        dataGrab(spill)
+        started = true;
     }
 
 }
