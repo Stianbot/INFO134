@@ -1,7 +1,7 @@
 // 3.a)
 var protoPerson = {
   get navn() {return this.fornavn + " " + this.etternavn}
-};
+}
 
 console.log(protoPerson.navn);
 
@@ -37,6 +37,6 @@ for (var nøkkel in familie) {
 
 protoPerson.hils = function() {
   console.log("Hei, " + this.navn + "!");
-};
+}
 
 console.log(familie.ola.hils());
