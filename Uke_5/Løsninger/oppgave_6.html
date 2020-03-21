@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demonstrasjon</title>
+    <style>
+      .dead {
+        color: red;
+        text-decoration: none;
+      }
+    </style>
+
+  </head>
+  <body id="body" >
+    <button onclick="startProgram()">Kill</button>
+    <p id="avsnittet">
+      <a href="http://wildboy.uib.no">Wildboy</a>
+    </p>
+  </body>
+  <script type="text/javascript">
+
+    /*Løsing med CSS. utnytter at vi har satt style på klassen "dead" til rød.
+    så når variabelen "nytt" erstatter det som er i elementet med id "avsnittet"
+    vil det få en ny klasse (dead) som er stylet på linje 7-9 i dokumentet. Her
+    setter vi farge til rød og tekstdekorasjon til none (for å fjeren dekorasjon) */
+    function startProgram() {
+      var avsnittet = document.getElementById("avsnittet");
+      var nytt = '<a class="dead" href="#">død  lenke</a>';
+      avsnittet.innerHTML = nytt;
+    }
+
+    /*Denne løsningen bruker javascript i stedet. Her bruker vi javacript til å
+    hente ut elementet med classe "dead" for så å sette skriftfarge til rød
+    og tekstdekorasjon til none ved hjelp av javacript (linje 40-42)*/
+
+    /*for å teste denne funksjonen: refresh siden og skriv "startProgram2()"
+    (uten hermetegn) i konsollen og trykk enter. Du kan også endre button onclick
+    på linje 15 til å være lik: "startProgram2()"*/
+    function startProgram2() {
+      var avsnittet = document.getElementById("avsnittet");
+      var nytt = '<a class="dead" href="#">død  lenke</a>';
+      avsnittet.innerHTML = nytt;
+
+      var a = document.getElementsByClassName("dead")[0];
+      a.style.color = "red";
+      a.style.textDecoration="none";
+    }
+
+  </script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>Demo 1</title>
+    <style type="text/css">
+
+    /* 1.a) div, p vil gjøre alt rødt bortsett fra A, for A er verken i en div eller i en p */
+    /*
+    div, p {
+      color: red;
+    }
+    */
+
+    /* 1.c) Skriftfarge vil være grønn og bakgrunnsfarge rosa, for alle p elementer */
+    /*
+    p {
+      color: green;
+      background-color: pink;
+    }
+    */
+
+    /*
+    p {
+      color: green;
+    }
+    p {
+      background-color: pink;
+    }
+    div p{
+      color: blue;
+    }
+    */
+    /* Forklaring: det som vil skje i tilfellet over er at D vil få blå skriftfarge
+    mens B har grønn skriftfarge. div p endrer alle p elementer som er inne i et div element.
+    Denne regelen overstyrer p color green fordi den er mer spesifikk*/
+
+    </style>
+  </head>
+  <body>
+      A
+    <p>
+      B
+    </p>
+    <div>
+      C
+    <p>
+	    D
+    </p>
+    </div>
+  </body>
+</html>
