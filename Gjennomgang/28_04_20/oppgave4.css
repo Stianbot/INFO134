@@ -1,0 +1,26 @@
+div {
+  background-color: yellow;
+}
+
+p {
+  color: black;
+}
+
+div h1 {
+  color: green;
+}
+
+#minOverskrift {
+  background-color: red;
+}
+
+.footer a {
+  color:grey;
+}
+
+/* NOTE: Sjekk opp i denne selv */
+@media screen (max-width:600px) {
+  div {
+    color:white;
+  }
+}
